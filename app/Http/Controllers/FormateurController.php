@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Formateur;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class FormateurController extends Controller
 {
@@ -35,11 +37,19 @@ class FormateurController extends Controller
             $photoPath = $request->file('photo')->store('photos', 'public');
         }
 
+        $user = User::create([
+            'name' => $request->nom,
+            'email' => $request->email,
+            'password' => '123456789',
+            'role' => 'formateur',
+        ]);
         Formateur::create([
             'nom' => $request->nom,
             'specialite' => $request->specialite,
             'biographie' => $request->biographie,
             'photo' => $photoPath,
+            'user_id' => $user->id,
+
         ]);
 
         return redirect()->route('formateurs.index')->with('success', 'Formateur ajouté avec succès');

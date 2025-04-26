@@ -27,7 +27,14 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        $user = auth()->user();
 
+        if ($user->role === 'formateur') {
+           // dd('test');
+            return redirect()->route('formateur.dashboard'); // index of resource route
+        } elseif ($user->role === 'admin') {
+            return redirect()->route('formations.index'); // default name for resource route
+        }
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

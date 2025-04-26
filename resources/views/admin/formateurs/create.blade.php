@@ -11,6 +11,10 @@
             <label for="nom">Nom</label>
             <input type="text" class="form-control" id="nom" name="nom" required>
         </div>
+        <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" class="form-control" id="email" name="email" required>
+        </div>
 
         <div class="form-group">
             <label for="specialite">Spécialité</label>

@@ -12,4 +12,8 @@ class Formateur extends Model
         'biographie',
         'photo',
     ];
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    } 
 }

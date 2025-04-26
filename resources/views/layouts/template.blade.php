@@ -39,8 +39,16 @@
               <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
               <li class="nav-item"><a class="nav-link" href="{{ route('Apropos') }}">À propos</a></li>
               <li class="nav-item"><a class="nav-link" href="{{ route('Cours')}}">Cours</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Actualités</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('Actualités')}}">Actualités</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">register</a></li>
+              <li class="nav-item">
+                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="nav-link btn btn-link" style="padding: 0; border: none;">Logout</button>
+                </form>
+            </li>
             </ul>
           </div>
         </div>

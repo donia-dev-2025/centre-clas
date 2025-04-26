@@ -13,6 +13,12 @@ class CompteController extends Controller
         $formateur = Auth::user();
         return view('formateur.compte.show', compact('formateur'));
     }
+    public function index()
+    {
+        $formateur = Auth::user();
+        //dd( $formateur->name );// pour afficher un message commentaire
+        return view('formateurs.dashboard', compact('formateur'));
+    }
 
     public function edit()
     {
