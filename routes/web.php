@@ -39,13 +39,12 @@ Route::get('/s', [FormationController::class, 'index'])->name('a.F.index');
 //pour formateur//
     Route::middleware(['auth', 'role:formateur'])->group(function () {
 
-    //hathem ne9sin controller homa chnya fonctional   compte mta3 for
     Route::resource('formateurs.courses', CourseController::class);
     Route::resource('formateurs.courses.chapitres', ChapitreController::class);
     // Affichage formulaire d'ajout vidéo
     Route::get('/videos/create', [VideoController::class, 'create'])->name('videos.create');
     Route::get('/test', [CompteController::class, 'index'])->name('formateur.dashboard');
-//ici tu let dashboard hathi l deja ne5dem fiha 
+
     // Enregistrement vidéo (post)
     Route::post('/videos', [VideoController::class, 'store'])->name('videos.store');
 
